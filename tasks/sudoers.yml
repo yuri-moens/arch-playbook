@@ -1,0 +1,10 @@
+---
+- name: Allow users in {{ sudoers_group }} to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%{{ sudoers_group }}\s'
+    line: "%{{ sudoers_group }} ALL=(ALL) NOPASSWD: ALL"
+    validate: "/usr/share/sbin/visudo -cf %s"
+  become: true
+  tags: ['user']

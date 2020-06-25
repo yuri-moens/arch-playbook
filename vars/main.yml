@@ -1,0 +1,13 @@
+---
+user:
+  name: ymo
+  group: ymo
+  groups:
+    - wheel
+  shell: /usr/bin/zsh
+
+sudoers_group: wheel
+
+base_packages:
+  - htop
+  - git

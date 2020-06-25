@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+
+  vars_files:
+    - vars/main.yml
+    - vars/vault.yml
+
+  roles:
+    - kewlfft.aur
+
+  tasks:
+    - include_tasks: tasks/user.yml
+      tags: ['user']
+
+    - include_tasks: tasks/sudoers.yml
+      tags: ['user']
+
+    - include_tasks: tasks/packages.yml

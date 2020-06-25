@@ -1,0 +1,19 @@
+---
+- name: Install base-devel packages
+  package:
+    name: base-devel
+    state: present
+  become: true
+
+- name: Install yay
+  aur:
+    name: yay
+    use: makepkg
+    state: present
+  become: true
+  become_user: "{{ user.name }}"
+
+- name: Install base packages
+  aur:
+    name: "{{ base_packages }}"
+    state: present
