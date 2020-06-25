@@ -8,6 +8,11 @@ user:
 
 sudoers_group: wheel
 
+gpu_packages:
+  - nvidia
+  - nvidia-settings
+  - lib32-nvidia-utils
+
 base_packages:
   - htop
   - git
